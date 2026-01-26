@@ -4,57 +4,168 @@ class PracticeExam:
 
     def count_odd_numbers(self, numbers):
         """Return the count of odd numbers in the list."""
-        pass
+        count = 0
+        for num in numbers:
+            if num % 2 > 0:
+                count += 1
+        
+        return count
 
     def sum_list(self, numbers):
         """Return the sum of all numbers in the list."""
-        pass
+        total = 0
+
+        for num in numbers:
+            total += num
+        
+        return total
 
     def reverse_words_order(self, sentence):
         """Reverse the order of words in a sentence."""
-        pass
+        
+        sentence_list = sentence.split(" ")
+        reversed_words = []
+
+        for i in range(len(sentence_list) -1, -1 , -1):
+            reversed_words.append(sentence_list[i])
+        
+        return " ".join(reversed_words)
+        
+       
+    
 
     def contains_vowel(self, text):
         """Return True if the string contains at least one vowel."""
-        pass
+        vowels = ['a' , 'i' , 'o' , 'u' , 'e']
+
+        for letter in text:
+            if letter.lower() in vowels:
+                return True
+            else:
+                pass
+        
+        return False
 
     def smallest_number(self, numbers):
         """Return the smallest number in the list or None if empty."""
-        pass
+        
+        if numbers: 
+            numbers.sort()
+            return numbers[0]
+        else:
+            return None
 
 
     # ===== INTERMEDIATE QUESTIONS =====
 
     def remove_vowels(self, text):
         """Return the string with all vowels removed (case-insensitive)."""
-        pass
+        vowels = ['a' , 'i' , 'o' , 'u' , 'e']
+        new_string = []
+
+        for letter in text:
+            if letter.lower() in vowels:
+                pass
+            else:
+                new_string.append(letter)
+        
+        return "".join(new_string)
+            
 
     def count_character_frequency(self, text):
         """Return a dictionary with character frequencies."""
-        pass
+        new_dict = {}
+
+        for letter in text:
+            new_dict.update({letter:0})
+
+            for i in range(len(text)):
+                if text[i] ==letter:
+                    new_dict[letter] += 1
+                else:
+                    pass
+        return new_dict
+
 
     def is_prime(self, n):
         """Return True if n is a prime number, otherwise False."""
-        pass
+
+        if n <= 1:
+            return False
+
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+
+        return True
+
+
 
     def flatten_list(self, nested):
         """Flatten a 2D list into a 1D list."""
-        pass
+        new_list = []
+        for x in nested:
+            for y in x:
+                new_list.append(y)
+        
+        return new_list
 
     def longest_common_prefix(self, words):
         """Return the longest common prefix among a list of words."""
-        pass
+
+        if not words:
+            return ""
+
+        prefix = words[0]
+
+        for word in words[1:]:
+            while not word.startswith(prefix):
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
+
+        return prefix
+
+
+
+
+        
+        
+
 
 
     # ===== ADVANCED QUESTIONS =====
 
     def fibonacci_sequence(self, n):
         """Return a list containing the first n Fibonacci numbers."""
-        pass
+        if n <= 0:
+            return []
+
+        if n == 1:
+            return [0]
+
+        fibs = [0, 1]
+
+        while len(fibs) < n:
+            fibs.append(fibs[-1] + fibs[-2])
+
+        return fibs
+
+
+
 
     def max_subarray_sum(self, numbers):
         """Return the maximum sum of a contiguous subarray."""
-        pass
+        totals = []
+
+        for i in range(len(numbers)):
+            total = 0
+            for num in numbers[i:]:
+                total += num
+                totals.append(total)
+
+        return max(totals)
+
 
     def valid_parentheses(self, s):
         """Return True if parentheses are valid."""
@@ -67,3 +178,8 @@ class PracticeExam:
     def spiral_matrix(self, n):
         """Return an n x n spiral matrix."""
         pass
+
+test = PracticeExam()
+
+print(test.reverse_words_order('hello world python'))
+
