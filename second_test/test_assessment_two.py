@@ -34,20 +34,17 @@ class TestAssessmentTwo(unittest.TestCase):
         self.assertFalse(self.exam.is_even_length("odd"))
         self.assertTrue(self.exam.is_even_length(""))
 
-
     # ===== INTERMEDIATE =====
 
     def test_remove_duplicates_preserve_order(self):
         self.assertEqual(
-            self.exam.remove_duplicates_preserve_order([1, 2, 2, 3, 1]),
-            [1, 2, 3]
+            self.exam.remove_duplicates_preserve_order([1, 2, 2, 3, 1]), [1, 2, 3]
         )
         self.assertEqual(self.exam.remove_duplicates_preserve_order([]), [])
 
     def test_word_lengths(self):
         self.assertEqual(
-            self.exam.word_lengths("hello world"),
-            {"hello": 5, "world": 5}
+            self.exam.word_lengths("hello world"), {"hello": 5, "world": 5}
         )
         self.assertEqual(self.exam.word_lengths(""), {})
 
@@ -58,8 +55,7 @@ class TestAssessmentTwo(unittest.TestCase):
 
     def test_chunk_list(self):
         self.assertEqual(
-            self.exam.chunk_list([1, 2, 3, 4, 5], 2),
-            [[1, 2], [3, 4], [5]]
+            self.exam.chunk_list([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]]
         )
         self.assertEqual(self.exam.chunk_list([], 3), [])
 
@@ -68,14 +64,10 @@ class TestAssessmentTwo(unittest.TestCase):
         self.assertTrue(self.exam.is_anagram("Dormitory", "Dirty room"))
         self.assertFalse(self.exam.is_anagram("hello", "world"))
 
-
     # ===== ADVANCED =====
 
     def test_running_sum(self):
-        self.assertEqual(
-            self.exam.running_sum([1, 2, 3]),
-            [1, 3, 6]
-        )
+        self.assertEqual(self.exam.running_sum([1, 2, 3]), [1, 3, 6])
         self.assertEqual(self.exam.running_sum([]), [])
 
     def test_longest_unique_substring(self):
@@ -84,10 +76,7 @@ class TestAssessmentTwo(unittest.TestCase):
         self.assertEqual(self.exam.longest_unique_substring(""), 0)
 
     def test_rotate_matrix_90(self):
-        self.assertEqual(
-            self.exam.rotate_matrix_90([[1, 2], [3, 4]]),
-            [[3, 1], [4, 2]]
-        )
+        self.assertEqual(self.exam.rotate_matrix_90([[1, 2], [3, 4]]), [[3, 1], [4, 2]])
 
     def test_validate_palindrome_number(self):
         self.assertTrue(self.exam.validate_palindrome_number(121))
