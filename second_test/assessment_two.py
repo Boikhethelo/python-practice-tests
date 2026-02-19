@@ -46,7 +46,22 @@ class AssessmentTwo:
 
     def remove_duplicates_preserve_order(self, numbers):
         """Remove duplicates while preserving order."""
-        return list(set(numbers))
+        if not numbers:
+            return []
+        
+        seen = set(numbers)
+        output = []
+
+        for num in numbers:
+            if num not in seen:
+                output.append(num)
+                seen.add(num)
+            else:
+                pass
+        
+        return output
+
+        
 
     def word_lengths(self, sentence):
         """Return a dictionary mapping each word to its length."""
