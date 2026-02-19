@@ -6,35 +6,48 @@ def sum_list(numbers):
     """
     Return the sum of all numbers in a list.
     """
-    pass
+    return sum(numbers)
 
 
 def count_even(numbers):
     """
     Return the count of even numbers in a list.
     """
-    pass
+    #return len([x for x in numbers if x % 2 == 0])
+    return sum(1 for x in numbers if x % 2 == 0)
 
 
 def capitalize_sentence(sentence):
     """
     Return the sentence with the first letter of each word capitalized.
     """
-    pass
+    if sentence:
+        output = []
+    else:
+        return ""
+    
+    words = sentence.split()
+    
+    output = [word.capitalize() for word in words ]
+
+    return " ".join(output)
 
 
 def reverse_string(s):
     """
     Return the reversed string.
     """
-    pass
+    return s[::-1]
 
 
 def max_in_list(numbers):
     """
     Return the maximum number in a list. Return None if the list is empty.
     """
-    pass
+    if numbers:
+        return max(numbers)
+    else:
+        return None
 
 
 # =========================
@@ -45,14 +58,28 @@ def factorial(n):
     """
     Return the factorial of a non-negative integer n.
     """
-    pass
+    if n < 0 :
+        return ValueError
+    elif n ==1 or n == 0:
+        return 1
+    else:
+        return factorial * factorial(n-1)
 
 
-def remove_duplicates(lst):
+def remove_duplicates(lst):#NB
     """
     Return a list with duplicates removed while preserving order.
     """
-    pass
+    seen = set(set)
+    output = []
+
+    for item in lst:
+        if item not in seen:
+            seen.add(item)
+            output.append(item)
+
+    return output
+
 
 
 def sum_of_squares(numbers):
@@ -66,7 +93,7 @@ def sort_dict_by_values(d):
     """
     Return a list of tuples sorted by dictionary values.
     """
-    pass
+    
 
 
 def print_multiplication_table(n):
