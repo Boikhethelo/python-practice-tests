@@ -26,15 +26,7 @@ def format_student_report(name, marks):
 
 def compress_string(text):
     """Compress a string by counting consecutive characters."""
-    # output = ""
-    # list_text = list(text)
-    # for char in list_text:
-    #     if char not in output:
-    #         output = output + f"{char} {list_text.count(char)}"
-    #     else:
-    #         pass
-    
-    # return output
+
 
     if not text:
         return ""
@@ -61,13 +53,24 @@ def compress_string(text):
 
 def group_by_length(words):
     """Group words into a dictionary based on their length."""
-    pass
+    if not words:
+        return {}
+    else:
+        output = {}
+    
+    for word in words:
+        if len(word) not in output:
+            x = [w for w in words if len(w) == len(word)]
+            output.update({len(word): x})
+    
+    return output
 
 
-def reverse_list_recursively(items):
+def reverse_list_recursively(items): #NB
     """Reverse a list using recursion."""
-    pass
-
+    if len(items) <= 1:
+        return items
+    return reverse_list_recursively(items[1:]) + [items[0]]
 
 def rotate_matrix_90(matrix):
     """Rotate a square matrix 90 degrees clockwise."""
@@ -78,14 +81,39 @@ def rotate_matrix_90(matrix):
 
 def flatten_nested_list(nested):
     """Flatten a nested list of arbitrary depth using recursion."""
-    pass
+    result = []
+    
+    for item in nested:
+        if isinstance(item, list):
+            result.extend(flatten_nested_list(item))
+        else:
+            result.append(item)
+    
+    return result
 
 
 def sum_nested_numbers(nested):
     """Return the sum of all numbers in a nested list using recursion."""
-    pass
-
+    total = 0
+    
+    for item in nested:
+        if isinstance(item, list):
+            total += sum_nested_numbers(item)
+        else:
+            total += item
+    
+    return total
 
 def generate_pascal_row(n):
     """Return the nth row of Pascal's Triangle using recursion."""
-    pass
+    if n == 0:
+        return [1]
+    
+    previous_row = generate_pascal_row(n - 1)
+    new_row = [1]
+    
+    for i in range(1, len(previous_row)):
+        new_row.append(previous_row[i - 1] + previous_row[i])
+    
+    new_row.append(1)
+    return new_row

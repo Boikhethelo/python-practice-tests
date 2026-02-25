@@ -31,8 +31,6 @@ class PracticeExam:
         
         return " ".join(reversed_words)
         
-       
-    
 
     def contains_vowel(self, text):
         """Return True if the string contains at least one vowel."""
@@ -100,7 +98,6 @@ class PracticeExam:
         return True
 
 
-
     def flatten_list(self, nested):
         """Flatten a 2D list into a 1D list."""
         new_list = []
@@ -126,14 +123,6 @@ class PracticeExam:
 
         return prefix
 
-
-
-
-        
-        
-
-
-
     # ===== ADVANCED QUESTIONS =====
 
     def fibonacci_sequence(self, n):
@@ -151,8 +140,6 @@ class PracticeExam:
 
         return fibs
     
-
-
     def max_subarray_sum(self, numbers):
         """Return the maximum sum of a contiguous subarray."""
         totals = []

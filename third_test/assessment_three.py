@@ -144,8 +144,6 @@ class AssessmentThree:
         return output
 
 
-
-
     def longest_palindromic_substring(self, s):
         """Return the longest palindromic substring."""
         pass
